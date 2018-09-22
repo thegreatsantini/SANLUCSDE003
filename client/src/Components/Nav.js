@@ -5,7 +5,12 @@ import { Link } from 'react-router-dom';
 export default () => {
         return (
                 <ButtonToolbar>
-                    <Button href="#">
+                    <Button>
+                        <Link to='/'>
+                            Home
+                        </Link>
+                    </Button>
+                    <Button >
                         <Link to='/facebook'>
                             Facebook posts
                         </Link>
