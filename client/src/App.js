@@ -2,13 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Routes from './Routes'
-import { Link, withRouter } from "react-router-dom";
-import Facebook from './Containers/Facebook';
-import Goodreads from './Containers/Goodreads';
-import Home from './Containers/Home';
-import NotFound from './Components/NotFound'
-import { Route, Switch } from "react-router-dom";
-
+import Nav from './Components/Nav'
 
 class App extends Component {
   constructor() {
@@ -19,14 +13,6 @@ class App extends Component {
     }
   }
 
-  componentDidMount = () => {
-    console.log('runing')
-    fetch('http://localhost:8080/test').then(response => {
-      response.json().then(data => {
-        console.log(data)
-      })
-    })
-  }
 
   render() {
     return (
@@ -36,6 +22,7 @@ class App extends Component {
           <h1 className="App-title">Expedia Take Home Challenge</h1>
         </header>
         <p className="App-intro">
+        <Nav />
         </p>
         <Routes />
       </div>
