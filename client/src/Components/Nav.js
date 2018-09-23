@@ -1,25 +1,41 @@
 import React from 'react';
-import { ButtonToolbar, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import {
+    Navbar,
+    NavItem,
+    Nav
+} from 'react-bootstrap';
+import {
+    Link,
+    NavLink,
+} from 'react-router-dom';
+
+const navStyle = {
+    backgroundColor: '#222',
+    border: 'none',
+}
 
 export default () => {
-        return (
-                <ButtonToolbar>
-                    <Button>
-                        <Link to='/'>
-                            Home
-                        </Link>
-                    </Button>
-                    <Button >
-                        <Link to='/facebook'>
-                            Facebook posts
-                        </Link>
-                    </Button>
-                    <Button>
-                        <Link to='/goodreads'>
-                            Goodreads
-                        </Link>
-                    </Button>
-                </ButtonToolbar>
-        );
-    }
+    return (
+        <Navbar style={navStyle}>
+            <Navbar.Header>
+                <Navbar.Brand>
+                    <NavLink to='/'>
+                        Expedia Challenge
+                    </NavLink>
+                </Navbar.Brand>
+            </Navbar.Header>
+            <Nav>
+                <NavItem eventKey={1} href="#">
+                    <NavLink to='/facebook'>
+                        Facebook
+                    </NavLink>
+                </NavItem>
+                <NavItem eventKey={2} href="#">
+                    <Link to='/goodreads' >
+                        Goodreads
+                    </Link>
+                </NavItem>
+            </Nav>
+        </Navbar>
+    );
+}
