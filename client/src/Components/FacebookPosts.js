@@ -1,9 +1,13 @@
 import React from 'react';
-import { 
+import {
     Col,
     Panel,
     Row
- } from 'react-bootstrap'
+} from 'react-bootstrap'
+
+const containerStyle = {
+    padding: '15px 15%'
+}
 
 export default ({ data }) => {
 
@@ -19,7 +23,7 @@ export default ({ data }) => {
         )
     })
     return (
-        <Row>
+        <Row style={containerStyle}>
             {UI}
         </Row>
     );
