@@ -1,10 +1,12 @@
 import React from 'react';
+import './Loader.css';
 
 
-export default ({ source, item }) => {    
-        return (
-            <React.Fragment>
-                <h1> Please Wait we are fetching { source } { item }</h1>
-            </React.Fragment>
-        );
-    }
+export default ({ source, item }) => {
+    return (
+        <React.Fragment>
+            <h1>Fetching {source} {item}</h1>
+            <div class='loader'></div>
+        </React.Fragment>
+    );
+}
