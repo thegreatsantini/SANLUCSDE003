@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    Navbar,
     NavItem,
     Nav
 } from 'react-bootstrap';
@@ -8,34 +7,36 @@ import {
     Link,
     NavLink,
 } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
+// import './Nav.css'
 
 const navStyle = {
     backgroundColor: '#222',
     border: 'none',
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    fontSize: '1.6em'
 }
 
 export default () => {
+
     return (
-        <Navbar style={navStyle}>
-            <Navbar.Header>
-                <Navbar.Brand>
-                    <NavLink to='/'>
-                        Expedia Challenge
-                    </NavLink>
-                </Navbar.Brand>
-            </Navbar.Header>
-            <Nav>
-                <NavItem eventKey={1} href="#">
-                    <NavLink to='/facebook'>
-                        Facebook
-                    </NavLink>
-                </NavItem>
-                <NavItem eventKey={2} href="#">
-                    <Link to='/goodreads' >
-                        Goodreads
-                    </Link>
-                </NavItem>
-            </Nav>
-        </Navbar>
+        <Nav style={navStyle}>
+            <LinkContainer to='/'>
+                <NavItem >
+                    Home
+            </NavItem>
+            </LinkContainer>
+            <LinkContainer to='/facebook'>
+                <NavItem >
+                    facebook
+            </NavItem>
+            </LinkContainer>
+            <LinkContainer to='/goodreads'>
+                <NavItem >
+                    goodreads
+            </NavItem>
+            </LinkContainer>
+        </Nav>
     );
 }
