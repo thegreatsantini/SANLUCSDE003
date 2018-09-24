@@ -5,8 +5,6 @@ const asyncExecCmd = require('async-exec-cmd');
 const fs = require('fs');
 const cheerio = require('cheerio');
 const axios = require('axios');
-// const request = require('request');
-// const cmd = require('node-cmd');
 
 const baseUrl = process.env.GOODREADS_ENDPOINT;
 
@@ -14,14 +12,17 @@ indexRoute.get("/test", function (req, res) {
     res.status(200).send({ "item": "landing page" });
 });
 
-indexRoute.get('/api/v1/facebook', async (req, response) => {
+indexRoute.get('/api/v1/facebook', (req, response) => {
+    // Run Python script 
     asyncExecCmd('python3 ./scripts/get_facebook_posts.py', function __cb(err, res, code, buffer) {
         if (err) {
             console.error(err, code)
             return
         }
+        // Read data from output file
         const readData = fs.readFileSync('facebook_posts.txt', 'utf8', () => { return 'read populated file' })
         const parsed = JSON.parse(readData)
+        // Send JSON to client 
         response.send(parsed)
     })
 })
@@ -30,9 +31,12 @@ indexRoute.get('/api/v1/goodreads', async (req, response) => {
     
     let data = [];
 
+    // Make request to get HTML
     const html = await axios.get(baseUrl)
+    // parse respsone with cherrio
     const $ = cheerio.load(html.data);
 
+    // tranerse DOM, put relevant data into an object and push to data array
     for (let i = 0; i < 10; i++) {
 
         let currentQuote = {};
@@ -51,6 +55,7 @@ indexRoute.get('/api/v1/goodreads', async (req, response) => {
         }
         data.push(currentQuote)
     }
+    // Send JSON to client
     response.send(data)
 })
 
