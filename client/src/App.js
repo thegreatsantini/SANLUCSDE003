@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './expedia-logo.png';
 import './App.css';
 import Routes from './Routes'
 import Nav from './Components/Nav'
+
+
 
 class App extends Component {
   constructor() {
@@ -18,7 +20,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={logo} className="App-logo" alt="expedia logo" />
           <Nav />
         </header>
         <Routes />
