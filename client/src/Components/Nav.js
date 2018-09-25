@@ -15,7 +15,8 @@ const navStyle = {
     border: 'none',
     display: 'flex',
     justifyContent: 'space-evenly',
-    fontSize: '1.6em'
+    fontSize: '1.6em',
+    paddingTop: '5px'
 }
 
 export default () => {
