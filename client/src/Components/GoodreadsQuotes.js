@@ -21,7 +21,6 @@ const containerStyle = {
 export default ({ data }) => {
     const UI = data.map((item, i) => {
         return (
-            // <img src={images[`img${index}.jpg`]} />
             <Carousel.Item>
                 <img  alt="900x500" src={images[`img${i + 1}.jpg`]} />
                 <Carousel.Caption>
