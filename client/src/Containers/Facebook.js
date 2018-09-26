@@ -18,7 +18,6 @@ export default class Facebook extends Component {
     fetchPosts = async () => {
         const date = new Date();
         const lastSearch = localStorage.getItem('lastSearch')
-        console.log(lastSearch, date.getHours())
         if (localStorage.hasOwnProperty('posts') && lastSearch >= date.getHours()) {
             const data = JSON.parse(localStorage.getItem('posts'))
             this.setState({
