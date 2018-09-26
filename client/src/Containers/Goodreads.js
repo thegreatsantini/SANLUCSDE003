@@ -10,13 +10,26 @@ export default class Goodreads extends Component {
         super()
         this.state = {
             fetching: true,
-            quotes: []
+            quotes: [],
+            loggedIn: false
         }
     }
 
     componentDidMount = async () => {
-        // const data = fetch(`${SERVER_URL}/auth/user`)
-        this.fetchQoutes()
+        // check localStorage for user
+        const inLocalStorage = localStorage.hasOwnProperty('loggedIn')
+
+        // check href if user just logged in
+        const authorized = window.location.href
+
+        // if the user logged in the set to local storage and state
+        if (authorized[authorized.length - 1] == 1 || inLocalStorage) {
+            this.setState({
+                loggedIn: true
+            })
+            localStorage.setItem('loggedIn', true)
+            this.fetchQoutes()
+        }
     }
 
 
@@ -28,11 +41,10 @@ export default class Goodreads extends Component {
             console.log(data)
             this.setState({
                 fetching: false,
-                quotes: data
+                quotes: data,
             })
-        } 
+        }
         else {
-            console.log('fetching')
             const data = await fetch(`http://localhost:8080/api/v1/goodreads`)
             data.json().then((quotes) => {
                 this.setState({
@@ -47,15 +59,20 @@ export default class Goodreads extends Component {
     }
 
     render() {
-        return (
-            <React.Fragment className="App">
-                {/* <Button href={ SERVER_URL + '/auth/login' }>Link</Button> */} 
-                {
-                    this.state.fetching
-                        ? <LoadingScreen source='goodreads' item='quotes' />
-                        : <GoodreadQuotes data={this.state.quotes} />
-                } 
-            </React.Fragment>
-        );
+        if (!this.state.loggedIn) {
+            return (
+                <Button href={SERVER_URL + '/auth/login'}>Link</Button>
+            )
+        } else {
+            return (
+                <React.Fragment className="App">
+                    {
+                        this.state.fetching
+                            ? <LoadingScreen source='goodreads' item='quotes' />
+                            : <GoodreadQuotes data={this.state.quotes} />
+                    }
+                </React.Fragment>
+            );
+        }
     }
 }
