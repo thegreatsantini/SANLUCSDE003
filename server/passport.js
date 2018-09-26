@@ -23,16 +23,7 @@ passport.serializeUser(function (user, done) {
 
 passport.deserializeUser(function (id, done) {
     // console.log('####### deserializing user!');
-    // db.User.findById(id, function (err, user) {
-    //     // console.log('deserialize callback func:', err, user);
-    //     if (err) {
-    //         // console.log('########## error deserializing user:\n', err);
-    //         done(err, null);
-    //     }
-        // console.log('######## Success deserialize:\n', user);
-        console.log(id)
         done(null, user);
-    // });
 });
 
 
