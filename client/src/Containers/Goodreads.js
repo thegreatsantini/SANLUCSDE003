@@ -3,6 +3,10 @@ import LoadingScreen from '../Components/LoadingScreen'
 import GoodreadQuotes from '../Components/GoodreadsQuotes'
 import { Button } from 'react-bootstrap';
 
+    const buttonStyle = {
+        marginTop: '20px'
+    }
+
 const SERVER_URL = 'http://localhost:8080'
 
 export default class Goodreads extends Component {
@@ -16,18 +20,29 @@ export default class Goodreads extends Component {
     }
 
     componentDidMount = async () => {
+        this.checkUser()
+    }
+
+    checkUser = () => {
         // check localStorage for user
         const inLocalStorage = localStorage.hasOwnProperty('loggedIn')
 
         // check href if user just logged in
         const authorized = window.location.href
 
-        // if the user logged in the set to local storage and state
-        if (authorized[authorized.length - 1] == 1 || inLocalStorage) {
+        // if the user just logged in set to localStorage and setState to true
+        if (authorized[authorized.length - 1] == 1) {
             this.setState({
                 loggedIn: true
             })
             localStorage.setItem('loggedIn', true)
+            this.fetchQoutes()
+        }
+        // check localStorage for authorized user. if true set logged in state to true 
+        else if (inLocalStorage) {
+            this.setState({
+                loggedIn: true
+            })
             this.fetchQoutes()
         }
     }
@@ -61,18 +76,25 @@ export default class Goodreads extends Component {
     render() {
         if (!this.state.loggedIn) {
             return (
-                <Button href={SERVER_URL + '/auth/login'}>Link</Button>
+                <div className='App' >
+                    <Button
+                        style={buttonStyle}
+                        bsStyle='info'
+                        href={SERVER_URL + '/auth/login'}>Login with Goodreads</Button>
+                </div>
             )
         } else {
             return (
-                <React.Fragment className="App">
+                <div
+                    bsStyle='primary'
+                    className="App">
                     {
                         this.state.fetching
                             ? <LoadingScreen source='goodreads' item='quotes' />
                             : <GoodreadQuotes data={this.state.quotes} />
                     }
-                </React.Fragment>
-            );
+                </div>
+            )
         }
     }
 }
