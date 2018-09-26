@@ -27,7 +27,7 @@ router.get('/logout', function (req, res) {
 
 router.get('/return', passport.authenticate('goodreads', { failureRedirect: `${process.env.FRONTEND_URL}/goodreads` }),
     function (req, res) {
-        res.redirect(`${process.env.FRONTEND_URL}/goodreads/${req.query.oauth_token}`);
+        res.redirect(`${process.env.FRONTEND_URL}/goodreads/${req.query.authorize}`);
     });
 
 module.exports = router;
