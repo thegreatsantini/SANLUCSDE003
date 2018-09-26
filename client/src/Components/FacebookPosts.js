@@ -11,7 +11,8 @@ const containerStyle = {
     display: 'flex',
     // justifyContent: 'center',
     flexWrap: 'wrap',
-    flex:'1 1 auto'
+    flex:'1 1 auto',
+    marginTop: '10px'
 }
 
 const panelBodyStyle = {

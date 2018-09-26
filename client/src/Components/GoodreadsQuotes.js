@@ -14,27 +14,41 @@ const images = importAll(require.context('../images', false, /\.(png|jpe?g|svg)$
 
 const containerStyle = {
     margin: '0 auto',
-    padding:  '15px 15%'
+    padding: '25px 15%',
 }
 
+const textStyle = {
+    fontSize: '1.99rem',
+    fontWeight: 'bold'
+}
+
+const imageStyle = {
+    boxShadow: '0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)',
+}
 
 export default ({ data }) => {
     const UI = data.map((item, i) => {
         return (
-            <Carousel.Item>
-                <img  alt="900x500" src={images[`img${i + 1}.jpg`]} />
+            <Carousel.Item
+            interval={null}
+                >
+                <img
+                    style={imageStyle}
+                    alt="Inspirational picture with quote"
+                    src={images[`img${i + 1}.jpg`]}
+                />
                 <Carousel.Caption>
-                    <h3>{item.quote}</h3>
-                    <p>{item.votes}</p>
+                    <h4 style={textStyle}> {item.quote} </h4>
+                    <p>Votes: {item.votes}</p>
                 </Carousel.Caption>
             </Carousel.Item>
         )
     })
     return (
-        <Well style={containerStyle}>
+        <div style={containerStyle}>
             <Carousel>
                 {UI}
             </Carousel>
-        </Well>
+        </div>
     );
 }
