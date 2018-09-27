@@ -5,8 +5,15 @@
 1) In your terminal run ```git clone https://github.com/thegreatsantini/SANLUCSDE003.git```
 
 2) Open two separate terminal tabs.
-    a) ```cd client && npm start```
-    b) ```cd server && npm start```
+    A. Server
+		1)``cd server``
+		2)``npm i``
+		3)``npm start``
+	B. Front end
+		1) ``cd client``
+		2) ``npm i``
+		3)``npm start``
+
 
 To create a UI I used React with Create-React-App as my frontend framework and Node.js with express as my server. 
 I placed them in separate directories running them on separate ports because it is a decoupled app. 
