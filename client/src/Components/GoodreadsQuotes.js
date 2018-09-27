@@ -19,7 +19,8 @@ const containerStyle = {
 
 const textStyle = {
     fontSize: '1.99rem',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: 'Noto Serif KR, sans-serif'
 }
 
 const imageStyle = {
