@@ -8,7 +8,6 @@ import {
     NavLink,
 } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
-// import './Nav.css'
 
 const navStyle = {
     backgroundColor: '#222',
@@ -16,26 +15,32 @@ const navStyle = {
     display: 'flex',
     justifyContent: 'space-evenly',
     fontSize: '1.6em',
-    paddingTop: '5px'
+    paddingTop: '5px',
 }
+
+const nav__item = {
+    fontFamily: 'Lato, sans-serif',
+    fontWeight: '700'
+}
+
 
 export default () => {
 
     return (
         <Nav style={navStyle}>
-            <LinkContainer to='/'>
+            <LinkContainer style={nav__item} to='/'>
                 <NavItem >
                     Home
             </NavItem>
             </LinkContainer>
-            <LinkContainer to='/facebook'>
+            <LinkContainer style={nav__item} to='/facebook'>
                 <NavItem >
-                    facebook
+                    Facebook
             </NavItem>
             </LinkContainer>
-            <LinkContainer to='/goodreads'>
+            <LinkContainer style={nav__item} to='/goodreads'>
                 <NavItem >
-                    goodreads
+                    Goodreads
             </NavItem>
             </LinkContainer>
         </Nav>
