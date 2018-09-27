@@ -7,13 +7,19 @@
 2) Open two separate terminal tabs.
     
 3) Server
-	1)``cd server``
-	2)``npm i``
-	3)``npm start``
+
+	a)``cd server``
+	
+	b)``npm i``
+	
+	c)``npm start``
 4) Front end
-	1) ``cd client``
-	2) ``npm i``
-	3)``npm start``
+
+	a) ``cd client``
+	
+	b) ``npm i``
+	
+	c)``npm start``
 
 
 To create a UI I used React with Create-React-App as my frontend framework and Node.js with express as my server. 
