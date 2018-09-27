@@ -1,11 +1,19 @@
 import React from 'react';
 
+const landing__page = {
+    fontFamily: 'Lato, sans-serif',
+    padding: '25px'
+}
+
 export default () => {
     return (
-        <div className="App">
+        <div style={landing__page}>
             <h1>
-                Thank you for your consideration
+                Expedia take home challenge
             </h1>
+            <h3>
+                🎉 Thank you for your consideration 🎉
+            </h3>
         </div>
     );
 }
