@@ -3,10 +3,6 @@ import {
     NavItem,
     Nav
 } from 'react-bootstrap';
-import {
-    Link,
-    NavLink,
-} from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 
 const navStyle = {

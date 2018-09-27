@@ -31,7 +31,7 @@ export default class Goodreads extends Component {
         const authorized = window.location.href
 
         // if the user just logged in set to localStorage and setState to true
-        if (authorized[authorized.length - 1] == 1) {
+        if (authorized[authorized.length - 1] === '1') {
             this.setState({
                 loggedIn: true
             })
@@ -53,7 +53,6 @@ export default class Goodreads extends Component {
         const lastSearch = localStorage.getItem('lastSearch')
         if (localStorage.hasOwnProperty('quotes') && lastSearch >= date.getHours()) {
             const data = JSON.parse(localStorage.getItem('quotes'))
-            console.log(data)
             this.setState({
                 fetching: false,
                 quotes: data,

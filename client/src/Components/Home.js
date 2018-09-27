@@ -12,7 +12,9 @@ export default () => {
                 Expedia take home challenge
             </h1>
             <h3>
-                🎉 Thank you for your consideration 🎉
+                <span role='img' aria-label="Party Popper">
+                    🎉 Thank you for your consideration🎉
+                </span>
             </h3>
         </div>
     );

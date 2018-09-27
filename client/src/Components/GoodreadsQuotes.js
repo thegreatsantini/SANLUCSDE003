@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-    Carousel,
-    Well,
-} from 'react-bootstrap'
+import { Carousel } from 'react-bootstrap'
 
 const importAll = (r) => {
     let images = {};
@@ -35,7 +32,7 @@ export default ({ data }) => {
                 >
                 <img
                     style={imageStyle}
-                    alt="Inspirational picture with quote"
+                    alt="Inspirational quote"
                     src={images[`img${i + 1}.jpg`]}
                 />
                 <Carousel.Caption>
